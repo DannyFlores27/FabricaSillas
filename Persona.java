@@ -1,57 +1,110 @@
-public class Persona {
+class Persona {
+  private String nit;
   private String nombre;
   private String apellido;
-  private String cui;
-  private String id;
-  private String puesto;
-  private Integer estado;
+  private String telefono;
+  private String direccion;
 
-  public String getNombre() {
-    return nombre;
-  }
+public Persona (String nit, String nombre, String apellido, String telefono, String direccion){
+  this.nit=nit;
+  this.nombre=nombre;
+  this.apellido=apellido;
+  this.telefono=telefono;
+  this.direccion=direccion;
+}
+  
+public String getNit() {
+	return nit;
+}
+public void setNit(String nit) {
+	this.nit = nit;
+}
+public String getNombre() {
+	return nombre;
+}
+public void setNombre(String nombre) {
+	this.nombre = nombre;
+}
+public String getApellido() {
+	return apellido;
+}
+public void setApellido(String apellido) {
+	this.apellido = apellido;
+}
+public String getTelefono() {
+	return telefono;
+}
+public void setTelefono(String telefono) {
+	this.telefono = telefono;
+}
+public String getDireccion() {
+	return direccion;
+}
+public void setDireccion(String direccion) {
+	this.direccion = direccion;
+}
 
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
 
-  public String getApellido() {
-    return apellido;
-  }
+}
 
-  public void setApellido(String apellido) {
-    this.apellido = apellido;
-  }
+class Colaborador extends Persona {
 
-  public String getCui() {
-    return cui;
-  }
-
-  public void setCui(String cui) {
+  private String fechaInicioContrato;
+  private String fechaFinContrato;
+  private Integer cui;
+  private Integer id;
+  
+  public Colaborador (String nit, String nombre, String apellido, String telefono, String direccion, String fechaInicioContrato, String fechaFinContrato, Integer cui, Integer id){
+  super(nit, nombre, apellido, telefono, direccion);
+    this.fechaFinContrato = fechaFinContrato;
+    this.fechaFinContrato = fechaFinContrato;
     this.cui = cui;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
     this.id = id;
+}
+}
+
+class Supervisor extends Colaborador {
+  
+  public Supervisor (String nit, String nombre, String apellido, String telefono, String direccion, String fechaInicioContrato, String fechaFinContrato, Integer cui, Integer id){
+  super(nit, nombre, apellido, telefono, direccion);
+}
+
+  boolean inspeccionCalidad (){
+    boolean valid=true;
+    System.out.println("Supervisor inspecciono");
+    return valid;
+  }
+}
+
+class Vendedor extends Supervisor {
+  
+  public Vendedor (String nit, String nombre, String apellido, String telefono, String direccion, String fechaInicioContrato, String fechaFinContrato, Integer cui, Integer id){
+  super(nit, nombre, apellido, telefono, direccion);
+}
+
+  boolean vender (){
+    boolean valid=true;
+    System.out.println("Vendedor hizo venta");
+    return valid;
   }
 
-  public String getPuesto() {
-    return puesto;
+  boolean facturar (){
+    boolean valid=true;
+    System.out.println("Vendedor facturo");
+    return valid;
   }
 
-  public void setPuesto(String puesto) {
-    this.puesto = puesto;
+  boolean solicitarMercaderia (){
+    boolean valid=true;
+    System.out.println("Vendedor solicito mercaderia");
+    return valid;
   }
+}
 
-  public Integer getEstado() {
-    return estado;
+interface Reportar {
+
+    public hacerReporte {
+    System.out.println("Reporte lleno");
   }
-
-  public void setEstado(Integer estado) {
-    this.estado = estado;
-  }
-
+  
 }
