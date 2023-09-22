@@ -2,6 +2,9 @@ package fabricaSillas;
 
 import java.util.Scanner;
 
+//Probando sincronizacion
+
+
 public class Main implements ValidarDatos {
 	
 	private static Scanner input = new Scanner(System.in);
